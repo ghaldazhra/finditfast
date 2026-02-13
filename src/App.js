@@ -16,7 +16,7 @@ const handleclick2 = () => {
     console.log("Button Clicked")
 };
 const handleclick3 = () => {
-    history.push("/AdminPortal");
+    history.push("/admin/login");
     console.log("Button Clicked")
 };
 

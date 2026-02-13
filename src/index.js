@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ReportItem from './ReportItem';
 import ViewsItem from './ViewsItem';
-import AdminPortal from './AdminPortal';
+import Login from './admin/login';
 import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
 import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
 
@@ -16,7 +16,7 @@ root.render(
         <Route path="/" exact component={App} />
         <Route path="/ReportItem" component={ReportItem} />
         <Route path="/ViewsItem" component={ViewsItem} />
-        <Route path="/AdminPortal" component={AdminPortal} />
+        <Route path="/admin/login" component={Login} />
       </Switch>
   </BrowserRouter>
 );
