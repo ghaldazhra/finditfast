@@ -1,10 +1,25 @@
 //import logo from './logo.svg';
-import './App.css';
+import './App.css'; 
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 function App() {
+  const history = useHistory();
+  const handleclick1 = () => {
+    history.push("/ReportItem");
+    console.log("Button Clicked")
+};
+const handleclick2 = () => {
+    history.push("/ViewsItem");
+    console.log("Button Clicked")
+};
+const handleclick3 = () => {
+    history.push("/AdminPortal");
+    console.log("Button Clicked")
+};
+
   return (
     <div className="App">
       <header className="App-header">
@@ -15,9 +30,9 @@ function App() {
                 gap: 2,
               }}
             >
-              <Button variant="contained">Report Item</Button>
-              <Button variant="contained">View Items</Button>
-              <Button variant="contained">Admin Portal</Button>
+              <Button variant="contained" onClick={handleclick1}>Report Item</Button>
+              <Button variant="contained" onClick={handleclick2}>View Items</Button>
+              <Button variant="contained" onClick={handleclick3}>Admin Portal</Button>
             </Box>
         </span>
         <section>
