@@ -6,8 +6,23 @@ import reportWebVitals from './reportWebVitals';
 import ReportItem from './ReportItem';
 import ViewsItem from './ViewsItem';
 import Login from './admin/login';
-import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
-import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
+import AdminDashboard from './admin/AdminDashboard';
+
+import { BrowserRouter, Route, Switch, Redirect } 
+from 'react-router-dom/cjs/react-router-dom.min';
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={(props) =>
+      localStorage.getItem("isAdmin") === "true" ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to="/admin/login" />
+      )
+    }
+  />
+);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,6 +32,8 @@ root.render(
         <Route path="/ReportItem" component={ReportItem} />
         <Route path="/ViewsItem" component={ViewsItem} />
         <Route path="/admin/login" component={Login} />
+
+        <PrivateRoute path="/admin/dashboard" component={AdminDashboard} />
       </Switch>
   </BrowserRouter>
 );
